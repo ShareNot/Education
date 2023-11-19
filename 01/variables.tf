@@ -41,3 +41,13 @@ variable "username" {
   default = "ubuntu"
   description = "The ssh username"
 }
+variable "ssh-priv-key" {
+  type = string
+  default = "~/.ssh/id_ed25519"
+  description = "The ssh private key (full path)"
+}
+variable "ssh-pub-key" {
+  type = string
+  default = "~/.ssh/id_ed25519.pub"
+  description = "The ssh public key (full path)"
+}

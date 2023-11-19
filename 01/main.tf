@@ -34,13 +34,8 @@ resource "yandex_compute_instance" "test-vm" {
   }
 
   metadata = {
-    # user-data = "${file("meta.txt")}"
-    ssh-keys = "${var.username}:${file("~/.ssh/id_ed25519.pub")}"
+    ssh-keys = "${var.username}:${file(var.ssh-pub-key)}"
   }
-
-  # provisioner "local-exec" {
-  #   command = "ansible-playbook -i '${yandex_compute_instance.test-vm.network_interface.0.nat_ip_address},' --private-key '~/.ssh/id_ed25519'  ansible_playbook.yml"
-  # }
 
 }
 
@@ -61,7 +56,7 @@ resource "null_resource" "ansible_provision" {
   connection {
     type  = "ssh"
     user  = var.username
-    agent = true
+    private_key = file(var.ssh-priv-key)
     host  = yandex_compute_instance.test-vm.network_interface.0.nat_ip_address
   }
 
@@ -70,7 +65,7 @@ provisioner "remote-exec" {
   }
 
   provisioner "local-exec" {
-    command = "ansible-playbook -u ${var.username} -i '${yandex_compute_instance.test-vm.network_interface.0.nat_ip_address},' --private-key='~/.ssh/id_ed25519' ansible_playbook.yml"
+    command = "ansible-playbook -u ${var.username} -i '${yandex_compute_instance.test-vm.network_interface.0.nat_ip_address},' --private-key='${var.ssh-priv-key}' ansible_playbook.yml"
   }
 
 }

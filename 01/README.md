@@ -4,6 +4,8 @@
 Манифест позволяет развернуть виртуальныу мвшину в Яндекс-облаке, с последующим присваиванием внешнего IP и установкой Nginx.  
 Для деплоя спользуются terrafom и ansible. Предполагается предварительное получение данных аутентификации в облаке, и их указание в переменных.
 Для деплоя спользуются terrafom и ansible.
+Используемая структура файлов:
+<img src="screensshots/files1.png" alt="files1.png" />
 
 ## Требования:
 
@@ -59,5 +61,13 @@ ssh-pub-key = "/home/user/terraform-project/.ssh/id_ed25519.pub"
 * указать токен и другие необходимые переменные в terrafom.tfvars
 * инициализировать terrafom: ```terraform init```
 * сформировать и проверить план деплоя: ```terraform plan```
-* запустить деплой: ```terraform apply```
-* для проверки выполнить http-запрос на IP, сформированный после деплоя
+* запустить деплой: ```terraform apply```  
+Необходимо подтвердить выполнение, после чего будет запущено создание ВМ:  
+<img src="screensshots/start_deploy.png" alt="start_deploy.png" />  
+
+* После завершения деплоя, будут выведены IP-адреса созданной ВМ:  
+<img src="screensshots/deploy_result.png" alt="deploy_result.png" />  
+
+Для проверки выполнить http-запрос на IP, сформированный после деплоя:
+<img src="screensshots/http_check.png" alt="http_check.png" />  
+

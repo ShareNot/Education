@@ -63,7 +63,7 @@ ssh-pub-key = "/home/user/terraform-project/.ssh/id_ed25519.pub"
 * сформировать и проверить план деплоя: ```terraform plan```
 * запустить деплой: ```terraform apply```  
 Необходимо подтвердить выполнение, после чего будет запущено создание ВМ:  
-<img src="screensshots/start_deploy.png" alt="start_deploy.png" />  
+<img src="screenshots/start_deploy.png" alt="start_deploy.png" />  
 
 * После завершения деплоя, будут выведены IP-адреса созданной ВМ:  
 <img src="screenshots/deploy_result.png" alt="deploy_result.png" />  

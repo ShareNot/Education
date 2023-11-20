@@ -5,7 +5,7 @@
 Для деплоя спользуются terrafom и ansible. Предполагается предварительное получение данных аутентификации в облаке, и их указание в переменных.
 Для деплоя спользуются terrafom и ansible.
 Используемая структура файлов:
-<img src="screensshots/files1.png" alt="files1.png" />
+<img src="screenshots/files1.png" alt="files1.png" />
 
 ## Требования:
 
@@ -66,8 +66,8 @@ ssh-pub-key = "/home/user/terraform-project/.ssh/id_ed25519.pub"
 <img src="screensshots/start_deploy.png" alt="start_deploy.png" />  
 
 * После завершения деплоя, будут выведены IP-адреса созданной ВМ:  
-<img src="screensshots/deploy_result.png" alt="deploy_result.png" />  
+<img src="screenshots/deploy_result.png" alt="deploy_result.png" />  
 
 Для проверки выполнить http-запрос на IP, сформированный после деплоя:
-<img src="screensshots/http_check.png" alt="http_check.png" />  
+<img src="screenshots/http_check.png" alt="http_check.png" />  
 
